@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
+import os
 
-app = Flask(__name__,template_folder="templates")
+app = Flask(__name__,)
 
 @app.route('/')
 def index():
@@ -32,11 +33,9 @@ def calculateTax():
     return render_template('calculateTax.html')
 
 if __name__ == '__main__':
-    app.run(debug=True,port=10100,host="0.0.0.0",use_reloader=True)
+    from waitress import serve
+    serve(app, host='0.0.0.0', port=10100)
 
-import os
 
-print("Current Directory:", os.getcwd())
-print("Templates Path Exists:", os.path.exists("templates"))
-print("Index File Exists:", os.path.exists("templates/index.html"))
+
 

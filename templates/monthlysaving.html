@@ -71,6 +71,7 @@
             transform: scale(1.01);
         }
         .left, .right {
+            min-width: 350px;
             align-items: center;
             flex: 1;
             padding: 20px;
@@ -121,7 +122,7 @@
             border-color: #e74c3c;
         }
         .container-notfix {
-            min-width: 400px;
+            min-width: 100px;
             display: grid;
             align-items: center;
             margin-top: 20px;
@@ -355,7 +356,7 @@
         }
         
         .chart-container {
-            
+            display: none;
             max-width: auto;
             height: 1800px;
             margin-top: 20px;
@@ -863,7 +864,7 @@
                         
                         </div>
 
-                        <div id="notfix" style="display: none;">
+                        <div id="notfix" style="display: none; ">
                             <h3 style="font-weight: bolder;">ค่าครองชีพต่อเดือน</h3>
                             
                             <div class="container-notfix">
@@ -1363,17 +1364,22 @@
             
             /*const expensesftsss = expensesft*Math.pow( 1+5/100,yearstayfix );*/
             const yearcanstay = totalSavings / (expensesft * 12);
+            let wantstayexs = 0;
                 let moneyuses = 0;
                 let moneynosafes = 0;
                 for (let i = 0; i <= yearcanstay; i++) {
                     expensesftss = expensesft * Math.pow(1 + 5 / 100, i);
+                }
+            
+                for(let i = 1; i <=  yearcanstay; i++){
+                    wantstayex = expensesftss * Math.pow(1 + 5 / 100, i);
                 }
                     let yearuse = totalSavings / (expensesftss );
                     let yearnosafe = money / (expensesftss );
                     moneyuse = yearuse;
                     moneynosafe = yearnosafe;
                 // คำนวณจำนวนเงินที่ต้องใช้เพิ่มถ้าจะอยู่ถึงปีที่ต้องการ
-                moneyneedmore = (expensesftss * 12 * yearstayfix) - totalSavings;
+                moneyneedmore = (wantstayexs * 12 * yearstay) - totalSavings;
                 let yearstayfixs = yearstayfix*12;
                 
 
@@ -1393,17 +1399,21 @@
             expenseftt = `ค่าใช้จ่าย <span style="color: red; font-weight: bold;">${resultfd.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</span> (เมื่อผ่านไป ${years} ปี ค่าใช้จ่ายจะอยู่ที่(ประมาณ) : <span class="money-highlight">${expensesft.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</span> บาท/เดือน )<br>`;
             /*const expensesftsss = expensesft*Math.pow( 1+5/100,yearstay );*/
             const yearcanstay = totalSavings / (expensesft * 12);
+                let wantstayex = 0;
                 let moneyuses = 0;
                 let moneynosafes = 0;
                 for (let i = 0; i <= yearcanstay; i++) {
                     expensesftss = expensesft * Math.pow(1 + 5 / 100, i);
+                }
+                for(let i = 1; i <=  yearcanstay; i++){
+                    wantstayex = expensesftss * Math.pow(1 + 5 / 100, i);
                 }
                     let yearuse = totalSavings / (expensesftss );
                     let yearnosafe = money / (expensesftss );
                     moneyuse = yearuse;
                     moneynosafe = yearnosafe;
                 // คำนวณจำนวนเงินที่ต้องใช้เพิ่มถ้าจะอยู่ถึงปีที่ต้องการ
-                moneyneedmore = (expensesftss * 12 * yearstay) - totalSavings;
+                moneyneedmore = (wantstayex * 12 * yearstay) - totalSavings;
                 let yearstays = yearstay*12;
                 
 
