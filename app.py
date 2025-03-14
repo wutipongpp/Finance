@@ -31,5 +31,4 @@ def Calculatefloatinginteres():
 def calculateTax():
     return render_template('calculateTax.html')
 
-if __name__ == '__main__':
-    app.run(debug=True,port=10100,host="0.0.0.0",use_reloader=True)
+
