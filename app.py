@@ -1,6 +1,7 @@
+import os
 from flask import Flask, render_template, request, jsonify
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="templates")
 
 @app.route('/')
 def index():
@@ -31,7 +32,7 @@ def Calculatefloatinginteres():
 def calculateTax():
     return render_template('calculateTax.html')
 
-import os
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))  # Render กำหนด PORT อัตโนมัติ
