@@ -1,7 +1,6 @@
-import os
 from flask import Flask, render_template, request, jsonify
 
-app = Flask(__name__, template_folder="templates")
+app = Flask(__name__,)
 
 @app.route('/')
 def index():
@@ -32,10 +31,12 @@ def Calculatefloatinginteres():
 def calculateTax():
     return render_template('calculateTax.html')
 
+if __name__ == '__main__':
+    app.run(debug=True,port=10100,host="0.0.0.0",use_reloader=True)
 
+import os
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 10000))  # Render กำหนด PORT อัตโนมัติ
-    app.run(host="0.0.0.0", port=port, debug=True)
-
+print("Current Directory:", os.getcwd())
+print("Templates Path Exists:", os.path.exists("templates"))
+print("Index File Exists:", os.path.exists("templates/index.html"))
 
