@@ -31,4 +31,10 @@ def Calculatefloatinginteres():
 def calculateTax():
     return render_template('calculateTax.html')
 
+import os
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))  # Render กำหนด PORT อัตโนมัติ
+    app.run(host="0.0.0.0", port=port, debug=True)
+
 
